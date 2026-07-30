@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DORDRONE — Informatique, Domotique & Vidéosurveillance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --matrix:#00ff41;
@@ -19,11 +22,12 @@
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family:'Orbitron', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background:var(--bg);
     color:var(--text);
-    line-height:1.6;
+    line-height:1.7;
     overflow-x:hidden;
+    letter-spacing:.02em;
   }
   a{text-decoration:none;color:inherit;}
   .container{max-width:1120px;margin:0 auto;padding:0 24px;position:relative;z-index:2;}
@@ -190,6 +194,25 @@
     stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;
     filter:drop-shadow(0 0 6px rgba(0,255,65,.55));
   }
+  .socials{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap;}
+  .socials a{
+    width:44px;height:44px;
+    border:1px solid var(--panel-border);border-radius:11px;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(0,255,65,.05);
+    transition:all .25s;
+  }
+  .socials a svg{
+    width:20px;height:20px;
+    stroke:var(--matrix);fill:none;
+    stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;
+    filter:drop-shadow(0 0 5px rgba(0,255,65,.45));
+  }
+  .socials a:hover{
+    border-color:var(--matrix);
+    transform:translateY(-3px) scale(1.05);
+    box-shadow:0 10px 24px rgba(0,255,65,.22);
+  }
   .contact-item .icon svg{
     width:20px;height:20px;
     stroke:var(--matrix);fill:none;
@@ -290,6 +313,7 @@
   }
   textarea{resize:vertical;min-height:100px;}
   .form-submit{
+    font-family:inherit;
     width:100%;padding:15px;
     background:var(--matrix);color:#02180a;
     border:none;border-radius:9px;font-weight:800;font-size:.95rem;cursor:pointer;
@@ -324,8 +348,31 @@
   }
 
   @media (max-width:860px){
+    .nav{position:relative;}
     nav ul{display:none;}
-    .burger{display:flex;}
+    nav.open ul{
+      display:flex;flex-direction:column;gap:0;
+      position:fixed;top:69px;left:0;right:0;
+      background:rgba(2,10,5,.97);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--matrix);
+      box-shadow:0 20px 40px rgba(0,0,0,.6);
+      padding:8px 0;
+      z-index:99;
+    }
+    nav.open ul li a{
+      display:block;padding:15px 28px;
+      font-size:1rem;color:var(--text);
+      border-bottom:1px solid rgba(0,255,65,.08);
+    }
+    nav.open ul li:last-child a{border-bottom:none;}
+    nav.open ul li a:hover{background:rgba(0,255,65,.07);color:var(--matrix);}
+    .nav-cta{display:none;}
+    .burger{display:flex;padding:8px;}
+    .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .burger.open span:nth-child(2){opacity:0;}
+    .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .burger span{transition:transform .3s, opacity .3s;}
     .services-grid{grid-template-columns:1fr;}
     .hero h1{font-size:2.1rem;}
   }
@@ -537,6 +584,20 @@
         </div>
         <div><h4>Zone</h4><p>Sarlat (24) · Brive (19) · Lot (46)</p></div>
       </div>
+      <div class="socials">
+        <a href="https://www.instagram.com/dordrone/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="0.9" fill="#00ff41" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61582382312606" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/channel/UCaZeVsi65eP1w0o50agRVYw" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+          <svg viewBox="0 0 24 24"><rect x="2" y="5.5" width="20" height="13" rx="4"/><path d="m10 9.5 5 2.5-5 2.5z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@xlloollxgonzo" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M15.5 3c.4 2.6 2 4.2 4.5 4.6v3.1c-1.7 0-3.2-.6-4.5-1.5v6.1a5.8 5.8 0 1 1-5.8-5.8h.6v3.1h-.6a2.7 2.7 0 1 0 2.7 2.7V3h3.1z"/></svg>
+        </a>
+      </div>
     </div>
 
     <div class="contact-form">
@@ -588,6 +649,20 @@
         <h4>DORDRONE — Gonzalo Miguez</h4>
         <p style="font-size:.85rem;max-width:260px;">Informatique, domotique, vidéosurveillance et drone — Sarlat (24), Brive (19), Lot (46).</p>
         <p style="font-size:.85rem;margin-top:8px;"><a href="tel:+33688608222">06 88 60 82 22</a></p>
+        <div class="socials">
+          <a href="https://www.instagram.com/dordrone/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="0.9" fill="#00ff41" stroke="none"/></svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61582382312606" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCaZeVsi65eP1w0o50agRVYw" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+            <svg viewBox="0 0 24 24"><rect x="2" y="5.5" width="20" height="13" rx="4"/><path d="m10 9.5 5 2.5-5 2.5z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@xlloollxgonzo" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M15.5 3c.4 2.6 2 4.2 4.5 4.6v3.1c-1.7 0-3.2-.6-4.5-1.5v6.1a5.8 5.8 0 1 1-5.8-5.8h.6v3.1h-.6a2.7 2.7 0 1 0 2.7 2.7V3h3.1z"/></svg>
+          </a>
+        </div>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
@@ -674,6 +749,20 @@
       card.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg) translateZ(0)';
     });
   });
+})();
+
+/* ===== Menu burger (mobile) ===== */
+(function(){
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('header nav');
+  burger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    burger.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    burger.classList.remove('open');
+  }));
 })();
 
 /* ===== Devis form (mailto) ===== */
